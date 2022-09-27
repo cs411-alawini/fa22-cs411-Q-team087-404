@@ -17,7 +17,7 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-|  Title      |                        |
+|  Title      |   Rate My UIUC Course  |
 | System URL  |                        |
 | Video Link  |                        |
 
