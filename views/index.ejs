@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <title>Testing out website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav>
+    <a>Create</a>
+    <a href="/read">Read</a>
+    <a href="/update">Update</a>
+    <a href="/delete">Delete</a>
+    <a href="/search">Search</a>
+  </nav>
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h2>Insert new user info</h2>
+        <form action="mark" method="POST">
+          <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input type="text" class="form-control col-lg-9" id="FirstName" aria-describedby="emailHelp"
+              placeholder="Enter First Name" n>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
