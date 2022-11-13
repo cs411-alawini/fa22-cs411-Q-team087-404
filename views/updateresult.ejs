@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Testing out website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav>
+    <a href="/">Create</a>
+    <a href="/read">Read</a>
+    <a href="/update">Update</a>
+    <a href="/delete">Delete</a>
+    <a href="/search">Search</a>
+    <a href="/adv1">ADV1</a>
+    <a href="/adv2">ADV2</a>
+  </nav>
+
+    <div class="container mt-4">
+        <table class="table">
+          <thead>
+            <tr>
+                   <th>No. </th>
+              <th>dupNum</th>
+              <th>Eid</th>
+              <th>CourseId</th>
+              <th>Semester</th>
+              <th>A1</th>
+              <th>A2</th>
+              <th>A3</th>
+              <th>B1</th>
+              <th>B2</th>
+              <th>B3</th>
+              <th>C1</th>
+              <th>C2</th>
+              <th>C3</th>
+              <th>D1</th>
+              <th>D2</th>
+              <th>D3</th>
+              <th>F</th>
+              <th>W</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data1.length){ for(var i = 0; i< data1.length; i++) {%>
+            <tr>
+              <th scope="row"><%= (i+1) %></th>
+              <td><%= data1[i].dupNum%></td>
+              <td><%= data1[i].Eid%></td>
+              <td><%= data1[i].CourseId%></td>
+              <td><%= data1[i].Semester%></td>
+              <td><%= data1[i].A1%></td>
+              <td><%= data1[i].A2%></td>
+              <td><%= data1[i].A3%></td>
+              <td><%= data1[i].B1%></td>
+              <td><%= data1[i].B2%></td>
+              <td><%= data1[i].B3%></td>
+              <td><%= data1[i].C1%></td>
+              <td><%= data1[i].C2%></td>
+              <td><%= data1[i].C3%></td>
+              <td><%= data1[i].D1%></td>
+              <td><%= data1[i].D2%></td>
+              <td><%= data1[i].D3%></td>
+              <td><%= data1[i].F%></td>
+              <td><%= data1[i].W%></td>
+            </tr>
+            <% } }else{ %>
+            <tr>
+              <td>No data ever existed.</td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <title>411 Project Demo</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ </head>
+
+ <body>
+    <nav>
+        <a href="/">Create</a>
+        <a href="/read">Read</a>
+        <a >Update</a>
+        <a href="/delete">Delete</a>
+        <a href="/search">Search</a>
+        <a href="/adv1">ADV1</a>
+        <a href="/adv2">ADV2</a>
+      </nav>
+   <div class="container mt-4">
+     <div class="card">
+       <div class="card-body">
+         <h2>Update failed students in class</h2>
+         <form action="update-students" method="POST">
+           <div class="form-group">
+             <label for="num">Update number of students who failed in Prof.Imad's Pavement Design class in Fall'12</label>
+             <input type="number" class="form-control col-lg-9" id="num" aria-describedby="emailHelp" placeholder="Enter number of students who failed" name="num">
+             </div>
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+   </div>
+ </div>
+ </body>
+</html>

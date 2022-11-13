@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <title>411 Project Demo</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ </head>
+
+ <body>
+    <nav>
+        <a href="/">Create</a>
+        <a href="/read">Read</a>
+        <a href="/update">Update</a>
+        <a href="/delete">Delete</a>
+        <a href="/search">Search</a>
+        <a href="/adv1">ADV1</a>
+        <a >ADV2</a>
+      </nav>
+   <div class="container mt-4">
+     <div class="card">
+       <div class="card-body">
+         <h2>Advanced Query 2 </h2>
+         <form action="adv2-query" method="POST">
+           <div class="form-group">
+             <label for="netid"> To list courses from CS and IE with more than N failed students in any previous course offering </label>
+             <input type="text" class="form-control col-lg-9" id="min" aria-describedby="emailHelp" placeholder="Enter min number of failed student %" name="min">
+             </div>
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+   </div>
+ </div>
+ </body>
+</html>
