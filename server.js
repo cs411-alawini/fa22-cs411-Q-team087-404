@@ -27,6 +27,15 @@ app.use(express.static(__dirname + '../public'));
 app.get('/', function(req, res) {
   res.render('index', { title: 'Team 404' });
 });
+app.get('/user', function(req, res) {
+    res.render('user', { title: 'User Details' });
+  });
+app.get('/review', function(req, res) {
+    res.render('review', { title: 'Review section' });
+});
+app.get('/error', function(req, res) {
+    res.send({'message': 'Error!'});
+});
 
 /*
 app.get("/read", (req, res) => {
@@ -92,6 +101,18 @@ console.log(sq2);
   });
 });
 
+app.post('/choice', function(req, res) {
+    var submit = req.body.submit;
+    if (submit == "User") {
+        res.redirect('/user');
+    } else if (submit == "Review") {
+        res.redirect('/review');
+    }
+    else {
+        res.redirect('/error');
+    }
+    
+});
 /*
 // this code is executed when a user clicks the form submit button
 app.post('/read-course', function(req, res) {
