@@ -49,7 +49,12 @@ app.get('/create-success', function(req, res) {
 app.get('/success', function(req, res) {
     res.send({'message': 'Success!'});
 });
-
+app.get('/user-not-exist', function(req, res) {
+    res.send({'message': 'User does not exist!'});
+});
+app.get('/delete-success', function(req, res) {
+    res.send({'message': 'User deleted successfully!'});
+});
 
 /*
 
@@ -93,29 +98,38 @@ app.post('/create-user', function(req, res) {
 });
 
 app.post('/login-user', function(req, res) {
+    const submit = req.body.submit;
     var netid = req.body.netid;
     var pass = req.body.password;
     console.log(netid);
     console.log(pass);
-
+    console.log(submit);
     var sq1 = `SELECT * FROM User WHERE Net_id LIKE '${netid}' and Password LIKE '${pass}'`; 
     console.log(sq1);
     connection.query(sq1, function(err, result) {
-    if (err) {
-        res.send(err)
-        return;
-    }
-    if (result.length == 0) {
-        console.log("------> User does not exist")
-        res.sendStatus(409) 
-    } 
-    else {
-        res.redirect('/success');
-    }
-   // res.redirect('/success');
+        if (err) {
+            res.send(err)
+            return;
+        }
+        if (result.length == 0) {
+            res.redirect('/user-not-exist');
+        } 
+        else {
+            if (submit == "delete user") {
+                var sql = `Delete from User where Net_id='${netid}'`;
+                console.log(sql);
+                connection.query(sql, function(err, result) {
+                    if (err) {
+                        res.send(err);
+                        return;
+                    }
+                    res.redirect('/delete-success');
+                });
+            } else if (submit == "login") {
+                console.log("logged in!");
+            }
+        }
     });
-    
-    
 });
 
 
