@@ -58,7 +58,9 @@ app.get('/user-not-exist', function(req, res) {
 app.get('/delete-success', function(req, res) {
     res.send({'message': 'User deleted successfully!'});
 });
-
+app.get('/delete-success', function(req, res) {
+    res.send({'message': 'User deleted successfully!'});
+});
 /*
 
 
@@ -116,7 +118,7 @@ app.post('/login-user', function(req, res) {
             return;
         }
         if (result.length == 0) {
-            res.redirect('/user-not-exist');
+            res.redirect('/user-not-exist');  
         } 
         else {
             if (submit == "delete user") {
@@ -127,25 +129,26 @@ app.post('/login-user', function(req, res) {
                         res.send(err);
                         return;
                     }
-                    res.redirect('/delete-success');
+                res.redirect('/delete-success');
                 });
             } else if (submit == "login") {
 
                 //get dept id using netid and password
                 var deptIDsql = `select DeptId from User Net_id LIKE '${netid}' and Password LIKE '${pass}`
-                //deptID=
+                console.log(deptIDsql);
+                //deptID =
                 connection.query(deptIDsql, function(err, result1) {
                     if (err) {
                         res.send(err);
                         return;
                     }
-                    console.log(result1[0]);
-                    console.log(result1[1]);
+               // console.log(result1[0]);
+                //console.log(result1[1]);
                 });
                 //console.log()
                 //get list of courses for deptid and password. value is course id but list the names and number
                 //send list of courses not netid
-                res.render('postreview', { title: 'Create review'  ,netid:netid});
+                res.render('postreview', { title: 'Create review' });
                 //result's post must fetch netid and dept id on its own so should send in connection
             }
         }
