@@ -87,29 +87,36 @@ app.post('/create-user', function(req, res) {
             res.send(err)
             return;
         }
+        //redirect to create review page!
         res.redirect('/create-success');
         });
 });
 
 app.post('/login-user', function(req, res) {
     var netid = req.body.netid;
-    var pass1 = req.body.password;
+    var pass = req.body.password;
     console.log(netid);
-    console.log(pass1);
-    /*
-    var sq2 = `INSERT INTO User VALUES('${name}', '${netid}', '${dept}', '${sem}',${year},'${email}','${pass1}');`;
-    //var sql = `INSERT INTO attendance (netid, present) VALUES ('${netid}',1)`;
+    console.log(pass);
 
-    console.log(sq2);
-    connection.query(sq2, function(err, result) {
+    var sq1 = `SELECT * FROM User WHERE Net_id = ${netid} and Password = ${pass}`; 
+    console.log(sq1);
+    connection.query(sq1, function(err, result) {
     if (err) {
         res.send(err)
         return;
     }
-    res.redirect('/success');
+    if (result.length == 0) {
+        connection.release()
+        console.log("------> User does not exist")
+        res.sendStatus(409) 
+    } 
+    else {
+        res.redirect('/success');
+    }
+   // res.redirect('/success');
     });
-    */
-    res.redirect('/success');
+    
+    
 });
 
 
