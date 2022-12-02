@@ -121,7 +121,7 @@ app.post('/login-user', function(req, res) {
             res.redirect('/user-not-exist');  
         } 
         else {
-            if (submit == "delete user") {
+            if (submit == "delete") {
                 var sql = `Delete from User where Net_id='${netid}'`;
                 console.log(sql);
                 connection.query(sql, function(err, result) {
@@ -148,7 +148,8 @@ app.post('/login-user', function(req, res) {
                 //console.log()
                 //get list of courses for deptid and password. value is course id but list the names and number
                 //send list of courses not netid
-                res.render('postreview', { title: 'Create review' });
+                res.redirect('/success')
+                //res.render('postreview', { title: 'Create review' });
                 //result's post must fetch netid and dept id on its own so should send in connection
             }
         }
