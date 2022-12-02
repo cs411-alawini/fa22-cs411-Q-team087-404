@@ -23,10 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '../public'));
 
 /* GET home page, respond by rendering index.ejs */
+
 app.get('/', function(req, res) {
-  res.render('index', { title: 'Enter User Information' });
+  res.render('index', { title: 'Team 404' });
 });
 
+/*
 app.get("/read", (req, res) => {
     res.render("read", {title: 'Read Course List'});
 });
@@ -62,6 +64,9 @@ app.get('/read-success', function(req, res) {
 app.get('/delete-success', function(req, res) {
     res.send({'message': 'User deleted successfully!'});
 });
+*/
+
+
 
 // this code is executed when a user clicks the form submit button
 app.post('/create-user', function(req, res) {
@@ -87,6 +92,7 @@ console.log(sq2);
   });
 });
 
+/*
 // this code is executed when a user clicks the form submit button
 app.post('/read-course', function(req, res) {
         var dept = req.body.dept;
@@ -191,6 +197,7 @@ app.post('/adv2-query', function(req, res) {
         //res.redirect('/create-success');
     });
 });
+*/
 app.listen(80, function () {
     console.log('Node app is running on port 80');
 });
