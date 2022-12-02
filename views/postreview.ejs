@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+         <title>411 Project Demo</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ </head>
+
+ <body>
+   <nav>
+    <a href="/index">Home</a>
+    <a href="/user">User</a>
+    <a href="/review">Reviews</a>
+    
+  </nav>
+   <div class="container mt-4">
+     <div class="card">
+       <div class="card-body">
+         <h2>Enter new user details</h2>
+         <form action="create-user" method="POST">
+           <div class="form-group">
+
+            
+           <label for="sem">Semester</label>
+           <select name="semester" id="semester" class="form-control">
+                <option value="">Select Semester</option>
+                <option value="fa">Fall</option>
+                <option value="sp">Spring</option>
+                <option value="su">Summer</option>
+                <option value="wi">Winter</option>
+             </select>
+
+             <label for="year">Year</label>
+             <select name="year" id="year" class="form-control">
+                <option value="">Select Year</option>
+                <% for(var yr = 2010; yr <= 2022; yr++) 
+                { %>
+                <option value="<%= yr %>"><%= yr %></option>
+                <% } %>
+            </select>
+          
+            <label for="dr">Difficulty Rating</label>
+             <select name="dr" id="dr" class="form-control">
+                <option value="">Select Rating from 1 - 10</option>
+                <% for(var dr = 1; dr <= 10; dr++) 
+                { %>
+                <option value="<%= dr %>"><%= dr %></option>
+                <% } %>
+            </select>
+
+            <label for="pr">Practical Rating</label>
+             <select name="pr" id="pr" class="form-control">
+                <option value="">Select Rating from 1 - 10</option>
+                <% for(var pr = 1; pr <= 10; pr++) 
+                { %>
+                <option value="<%= pr %>"><%= pr %></option>
+                <% } %>
+            </select>
+
+            <label for="cr">Course Rating</label>
+             <select name="cr" id="cr" class="form-control">
+                <option value="">Select Rating from 1 - 10</option>
+                <% for(var cr = 1; cr <= 10; cr++) 
+                { %>
+                <option value="<%= cr %>"><%= cr %></option>
+                <% } %>
+            </select>            
+            
+            <label for="wh">Workload hours</label>
+            <input type="number" class="form-control col-lg-9" id="wh" aria-describedby="emailHelp" placeholder="Enter number of hours per week the course needed eg.15" name="wh">
+
+            <label for="review">Review</label>
+            <input type="text" class="form-control col-lg-9" id="reviewtext" aria-describedby="emailHelp" placeholder="Enter review" name="review">
+
+            </div>
+
+           <button type="submit" class="btn btn-primary">Create Account</button>
+         </form>
+   </div>
+ </div>
+ </body>
+</html>
