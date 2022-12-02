@@ -161,7 +161,7 @@ app.post('/post-review', function(req, res) {
     const netid = req.body.netid;
     const netsub = req.body.submit;
     const netname = req.body.mybutton;
-    const netname2 = req.body.mybutton2;
+    const netname2 = req.body.dept;
     console.log("----");
     console.log(netid);
     console.log(netsub);
