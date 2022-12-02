@@ -106,7 +106,6 @@ app.post('/login-user', function(req, res) {
         return;
     }
     if (result.length == 0) {
-        connection.release()
         console.log("------> User does not exist")
         res.sendStatus(409) 
     } 
