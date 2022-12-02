@@ -98,7 +98,7 @@ app.post('/login-user', function(req, res) {
     console.log(netid);
     console.log(pass);
 
-    var sq1 = `SELECT * FROM User WHERE Net_id = ${netid} and Password = ${pass}`; 
+    var sq1 = `SELECT * FROM User WHERE Net_id LIKE '${netid}' and Password LIKE '${pass}'`; 
     console.log(sq1);
     connection.query(sq1, function(err, result) {
     if (err) {
