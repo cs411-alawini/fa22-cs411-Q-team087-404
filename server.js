@@ -132,7 +132,7 @@ app.post('/login-user', function(req, res) {
                 // get dept id for netid and password
                 //deptIDsql = 
                 //deptID=
-                sessionStorage.setItem("netid", netid);
+                localStorage.setItem("netid", netid);
                 //store the gotten deptID too
                 //sessionStorage.setItem("deptid", deptID);
                 //get list of courses for deptid and password. value is course id but list the names and number
