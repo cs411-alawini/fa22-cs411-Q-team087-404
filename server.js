@@ -132,11 +132,11 @@ app.post('/login-user', function(req, res) {
                 // get dept id for netid and password
                 //deptIDsql = 
                 //deptID=
-                localStorage.setItem("netid", netid);
+                //localStorage.setItem("netid", netid);
                 //store the gotten deptID too
                 //sessionStorage.setItem("deptid", deptID);
                 //get list of courses for deptid and password. value is course id but list the names and number
-                res.render('postreview', { title: 'Create review'  });
+                res.render('postreview', { title: 'Create review'  ,netid:netid});
                 //result's post must fetch netid and dept id on its own so should send in connection
                 //sessionStorage.getItem("first");
             }
@@ -156,6 +156,11 @@ app.post('/choice', function(req, res) {
     else {
         res.redirect('/error');
     }
+    
+});
+app.post('/post-review', function(req, res) {
+    const netid = req.body.netid;
+    console.log(netid);
     
 });
 
