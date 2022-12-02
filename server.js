@@ -102,10 +102,11 @@ console.log(sq2);
 });
 
 app.post('/choice', function(req, res) {
-    var submit = req.body.submit;
-    if (submit == "User") {
+    const submit = req.body.submit;
+    console.log(submit);
+    if (submit == "user") {
         res.redirect('/user');
-    } else if (submit == "Review") {
+    } else if (submit == "review") {
         res.redirect('/review');
     }
     else {
