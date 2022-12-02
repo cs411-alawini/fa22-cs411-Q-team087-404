@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql2');
 var path = require('path');
 var connection = mysql.createConnection({
+                multipleStatements: true,
                 host: '34.173.42.98',
                 user: 'root',
                 password: 'password',
@@ -134,7 +135,7 @@ app.post('/login-user', function(req, res) {
             } else if (submit == "login") {
 
                 //get dept id using netid and password
-                var deptIDsql = `select DeptId from User where Net_id LIKE '${netid}' and Password LIKE '${pass}`
+                var deptIDsql = `select DeptId from User where Net_id LIKE '${netid}' and Password LIKE '${pass}`;
                 console.log(deptIDsql);
                 //deptID =
                 connection.query(deptIDsql, function(err, result1) {
