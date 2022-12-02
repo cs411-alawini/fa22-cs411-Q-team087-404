@@ -134,7 +134,7 @@ app.post('/login-user', function(req, res) {
             } else if (submit == "login") {
 
                 //get dept id using netid and password
-                var deptIDsql = `select DeptId from User Net_id LIKE '${netid}' and Password LIKE '${pass}`
+                var deptIDsql = `select DeptId from User where Net_id LIKE '${netid}' and Password LIKE '${pass}`
                 console.log(deptIDsql);
                 //deptID =
                 connection.query(deptIDsql, function(err, result1) {
