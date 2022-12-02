@@ -21,7 +21,9 @@
          <form action="post-review" method="POST">
            <div class="form-group">
 
-            
+          <label for="deptid">DeptId</label>
+          <input type="text" class="form-control col-lg-9" id="deptid" aria-describedby="emailHelp" placeholder="Enter Department" name="review">
+
            <label for="sem">Semester</label>
            <select name="semester" id="semester" class="form-control">
                 <option value="">Select Semester</option>
@@ -75,7 +77,7 @@
 
             </div>
 
-           <button name="mybutton" type="submit" value=netid class="btn btn-primary">Post Review</button>
+           <button name="mybutton" type="submit" value=<%= netid %> class="btn btn-primary">Post Review</button>
          </form>
    </div>
  </div>
