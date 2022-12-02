@@ -40,6 +40,9 @@ app.get('/login-user', function(req, res) {
 app.get('/create-user', function(req, res) {
     res.render('createuser', { title: 'User creation' });
 });
+app.get('/read-review', function(req, res) {
+    res.render('readreview', { title: 'Create review' });
+});
 app.get('/error', function(req, res) {
     res.send({'message': 'Error!'});
 });
@@ -126,7 +129,7 @@ app.post('/login-user', function(req, res) {
                     res.redirect('/delete-success');
                 });
             } else if (submit == "login") {
-                console.log("logged in!");
+                res.redirect('/read-review');
             }
         }
     });
