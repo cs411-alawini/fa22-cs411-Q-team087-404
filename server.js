@@ -100,6 +100,7 @@ app.post('/create-user', function(req, res) {
         });
 });
 
+
 app.post('/login-user', function(req, res) {
     const submit = req.body.submit;
     var netid = req.body.netid;
@@ -129,16 +130,14 @@ app.post('/login-user', function(req, res) {
                     res.redirect('/delete-success');
                 });
             } else if (submit == "login") {
-                // get dept id for netid and password
+                //get dept id using netid and password
                 //deptIDsql = 
                 //deptID=
-                //localStorage.setItem("netid", netid);
-                //store the gotten deptID too
-                //sessionStorage.setItem("deptid", deptID);
+                
                 //get list of courses for deptid and password. value is course id but list the names and number
+                //send list of courses not netid
                 res.render('postreview', { title: 'Create review'  ,netid:netid});
                 //result's post must fetch netid and dept id on its own so should send in connection
-                //sessionStorage.getItem("first");
             }
         }
     });
@@ -162,10 +161,13 @@ app.post('/post-review', function(req, res) {
     const netid = req.body.netid;
     const netsub = req.body.submit;
     const netname = req.body.mybutton;
+    const netname2 = req.body.mybutton2;
     console.log("----");
     console.log(netid);
     console.log(netsub);
     console.log(netname);
+    console.log(netname2);
+
     
 });
 
