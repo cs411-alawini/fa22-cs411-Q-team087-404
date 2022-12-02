@@ -130,10 +130,19 @@ app.post('/login-user', function(req, res) {
                     res.redirect('/delete-success');
                 });
             } else if (submit == "login") {
+
                 //get dept id using netid and password
-                //deptIDsql = 
+                var deptIDsql = `select DeptId from User Net_id LIKE '${netid}' and Password LIKE '${pass}`
                 //deptID=
-                
+                connection.query(deptIDsql, function(err, result1) {
+                    if (err) {
+                        res.send(err);
+                        return;
+                    }
+                    console.log(result1[0]);
+                    console.log(result1[1]);
+                });
+                //console.log()
                 //get list of courses for deptid and password. value is course id but list the names and number
                 //send list of courses not netid
                 res.render('postreview', { title: 'Create review'  ,netid:netid});
