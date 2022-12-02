@@ -32,19 +32,27 @@ app.get('/user', function(req, res) {
   });
 app.get('/review', function(req, res) {
     res.render('review', { title: 'Review section' });
+    
+});
+app.get('/login-user', function(req, res) {
+    res.render('loginuser', { title: 'Login details' });
+});
+app.get('/create-user', function(req, res) {
+    res.render('createuser', { title: 'User creation' });
 });
 app.get('/error', function(req, res) {
     res.send({'message': 'Error!'});
 });
+app.get('/create-success', function(req, res) {
+    res.send({'message': 'User created successfully!'});
+});
+app.get('/success', function(req, res) {
+    res.send({'message': 'Success!'});
+});
+
 
 /*
-app.get("/read", (req, res) => {
-    res.render("read", {title: 'Read Course List'});
-});
 
-app.get("/update", (req, res) => {
-    res.render("update", {title: 'Update course grades here'});
-});
 
 app.get("/delete", (req, res) => {
     res.render("delete", {title: 'Delete User from the database'});
@@ -52,22 +60,6 @@ app.get("/delete", (req, res) => {
 
 app.get("/search", (req, res) => {
     res.render("search", {title: 'Search for review by keyword'});
-});
-
-app.get("/adv1", (req, res) => {
-    res.render("adv1", {title: 'Use first advanced query:'});
-});
-
-app.get("/adv2", (req, res) => {
-    res.render("adv2", {title: 'Use second advanced query:'});
-});
-
-app.get('/create-success', function(req, res) {
-      res.send({'message': 'User inserted successfully!'});
-});
-
-app.get('/read-success', function(req, res) {
-    res.send({'message': 'Courses read successfully!'});
 });
 
 app.get('/delete-success', function(req, res) {
@@ -88,26 +80,60 @@ app.post('/create-user', function(req, res) {
         var pass1 = req.body.password;
         var sq2 = `INSERT INTO User VALUES('${name}', '${netid}', '${dept}', '${sem}',${year},'${email}','${pass1}');`;
         //var sql = `INSERT INTO attendance (netid, present) VALUES ('${netid}',1)`;
-
-
-
-console.log(sq2);
-  connection.query(sq2, function(err, result) {
-    if (err) {
-      res.send(err)
-      return;
-    }
-    res.redirect('/create-success');
-  });
+    
+        console.log(sq2);
+        connection.query(sq2, function(err, result) {
+        if (err) {
+            res.send(err)
+            return;
+        }
+        res.redirect('/create-success');
+        });
 });
+
+app.post('/login-user', function(req, res) {
+    var netid = req.body.netid;
+    var pass1 = req.body.password;
+    console.log(netid);
+    console.log(pass1);
+    /*
+    var sq2 = `INSERT INTO User VALUES('${name}', '${netid}', '${dept}', '${sem}',${year},'${email}','${pass1}');`;
+    //var sql = `INSERT INTO attendance (netid, present) VALUES ('${netid}',1)`;
+
+    console.log(sq2);
+    connection.query(sq2, function(err, result) {
+    if (err) {
+        res.send(err)
+        return;
+    }
+    res.redirect('/success');
+    });
+    */
+    res.redirect('/success');
+});
+
 
 app.post('/choice', function(req, res) {
     const submit = req.body.submit;
     console.log(submit);
-    if (submit == "user") {
+    if (submit == "write review") {
         res.redirect('/user');
-    } else if (submit == "review") {
+    } else if (submit == "read review") {
         res.redirect('/review');
+    }
+    else {
+        res.redirect('/error');
+    }
+    
+});
+
+app.post('/user-action', function(req, res) {
+    const submit = req.body.submit;
+    console.log(submit);
+    if (submit == "login") {
+        res.redirect('/login-user');
+    } else if (submit == "signup") {
+        res.redirect('/create-user');
     }
     else {
         res.redirect('/error');
