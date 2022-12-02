@@ -160,7 +160,12 @@ app.post('/choice', function(req, res) {
 });
 app.post('/post-review', function(req, res) {
     const netid = req.body.netid;
+    const netsub = req.body.submit;
+    const netname = req.body.mybutton;
+    console.log("----");
     console.log(netid);
+    console.log(netsub);
+    console.log(netname);
     
 });
 
