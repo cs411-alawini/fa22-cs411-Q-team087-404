@@ -106,7 +106,7 @@ app.post('/create-user', function(req, res) {
         });
 });
 app.post('/review-dept', function(req, res) {
-    var dept = req.body.dept;
+    var dept = req.body.dep;
     var cid = req.body.cid;
     
     cosql1 = `select * from Courses where DeptId LIKE '${dept}'`
