@@ -136,26 +136,29 @@ app.post('/login-user', function(req, res) {
 
                 //get dept id using netid and password
                 var deptIDsql = `select DeptId from User where Net_id LIKE '${netid}' and Password LIKE '${pass}'`;
-                var dept ;
+                var dept,cosql ;
                 console.log(deptIDsql);
                 connection.query(deptIDsql, function(err, result1) {
                     if (err) {
                         res.send(err);
                         return;
                     }
-                console.log(result1[0].DeptId);
-                dept = result1[0].DeptId;
+                    console.log(result1[0].DeptId);
+                    dept = result1[0].DeptId;
+                    console.log(dept);
+                    console.log("----")
+                    cosql = `select * from Courses where DeptId LIKE '${dept}'`
+                    console.log(cosql);
+                    connection.query(cosql, function(err, result2) {
+                        if (err) {
+                            res.send(err);
+                            return;
+                        }
+                    console.log(result2);
+                    res.render('postreview', { title: 'Create review' , deptid : dept , courses: result2});
+                    });
                 });
-                var cosql = `select * from Courses where DeptId LIKE '${dept}'`
-                console.log(cosql);
-                connection.query(cosql, function(err, result2) {
-                    if (err) {
-                        res.send(err);
-                        return;
-                    }
-                console.log(result2);
-                res.render('postreview', { title: 'Create review' , deptid : dept , courses: result2});
-                });
+                
                 
             }
         }
