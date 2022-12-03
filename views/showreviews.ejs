@@ -56,6 +56,7 @@
               <th>Practicality Rating (1-10)</th>
               <th>Workload (hrs/week)</th>
               <th>Course Rating (1-10)</th>
+              <th> Avg GPA</th>
             </tr>
           </thead>
           <tbody>
@@ -68,6 +69,7 @@
               <td><%= data[i].Difficulty_rating%></td>
               <td><%= data[i].Workload_hours%></td>
               <td><%= data[i].Course_rating%></td>
+              <td><%= gpa%></td>
             </tr>
             <% } }else{ %>
             <tr>

@@ -108,7 +108,7 @@ app.post('/create-user', function(req, res) {
 app.post('/review-dept', function(req, res) {
     var dept = req.body.dep;
     var cid = req.body.cid;
-    
+    var gpa;
     cosql1 = `call CourseResult(${cid})`
     console.log(cosql1);
     connection.query(cosql1, function(err, result3) {
@@ -116,7 +116,7 @@ app.post('/review-dept', function(req, res) {
             res.send(err);
             return;
         }
-
+        gpa = result3[0].gpa;
         console.log(result3);
         // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
     });
@@ -128,7 +128,7 @@ app.post('/review-dept', function(req, res) {
         }
 
         console.log(result);
-        res.render('showreviews', { title: 'Create review' ,  data: result });
+        res.render('showreviews', { title: 'Create review' ,  data: result , gpa: gpa});
     });    
 });
 
