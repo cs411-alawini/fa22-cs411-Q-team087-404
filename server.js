@@ -117,8 +117,8 @@ app.post('/review-dept', function(req, res) {
             return;
         }
         console.log(result3);
-        console.log(result3[0].CourseId);
-        res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
+        
+       // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
     });
 });
 
