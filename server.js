@@ -202,7 +202,7 @@ app.post('/choice', function(req, res) {
 });
 app.post('/post-review', function(req, res) {
     var netid = req.body.netid;
-    var dept = req.body.dept;
+    var dep = req.body.dep;
     var sem = req.body.semester;
     var year = req.body.year;
     var cid = req.body.cid;
