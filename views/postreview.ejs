@@ -42,6 +42,15 @@
                 <% } %>
             </select>
           
+            <label for="cr">Course</label>
+             <select name="cr" id="cr" class="form-control">
+                <option value="">Choose Course</option>
+                <% for(var cr = 1; cr <= courses.length; cr++) 
+                { %>
+                <option value="<%= courses.CourseId %>"><%= courses.Number %>- <%= courses.Title %></option>
+                <% } %>
+            </select>            
+            
             <label for="dr">Difficulty Rating</label>
              <select name="dr" id="dr" class="form-control">
                 <option value="">Select Rating from 1 - 10</option>

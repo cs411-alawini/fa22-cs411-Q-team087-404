@@ -136,23 +136,30 @@ app.post('/login-user', function(req, res) {
 
                 //get dept id using netid and password
                 var deptIDsql = `select DeptId from User where Net_id LIKE '${netid}' and Password LIKE '${pass}'`;
-                var dept 
+                var dept ;
                 console.log(deptIDsql);
-                //deptID =
                 connection.query(deptIDsql, function(err, result1) {
                     if (err) {
                         res.send(err);
                         return;
                     }
                 console.log(result1[0].DeptId);
-                dept = result1[0].DeptId
-                //console.log(result1[1]);
+                dept = result1[0].DeptId;
+                });
+                var cosql = `select * from Courses where DeptId LIKE '${dept}'`
+                console.log(cosql);
+                connection.query(cosql, function(err, result2) {
+                    if (err) {
+                        res.send(err);
+                        return;
+                    }
+                console.log(result2);
                 });
                 //console.log()
                 //get list of courses for deptid and password. value is course id but list the names and number
                 //send list of courses not netid
                 //res.redirect('/success')
-                res.render('postreview', { title: 'Create review' , deptid : dept});
+                res.render('postreview', { title: 'Create review' , deptid : dept , courses: result2});
                 //result's post must fetch netid and dept id on its own so should send in connection
             }
         }
