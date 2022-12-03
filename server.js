@@ -32,7 +32,7 @@ app.get('/user', function(req, res) {
     res.render('user', { title: 'User Details' });
   });
 app.get('/review', function(req, res) {
-    res.render('review', { title: 'Review section' });
+    res.render('reviewdept', { title: 'Review section' });
     
 });
 app.get('/login-user', function(req, res) {
