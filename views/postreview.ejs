@@ -11,7 +11,7 @@
    <nav>
     <a href="/">Home</a>
     <a href="/user">User</a>
-    <a href="/review">Reviews</a>
+    <a href="/reviewdept">Reviews</a>
     
   </nav>
    <div class="container mt-4">
@@ -42,13 +42,9 @@
                 <% } %>
             </select>
           
-            <label for="course">Course</label>
-             <select name="course" id="course" class="form-control">
-                <option value="">Choose Course</option>
-                <% for(var i = 0; i <= data.length; i++)  { %>
-                <option value="<%= data[i].CourseId %>"><%= data[i].Number %>- <%= data[i].Title %></option>
-                <% } %>
-            </select>            
+            <label for="wh">Course Number</label>
+            <input type="number" class="form-control col-lg-9" id="cid" aria-describedby="emailHelp" placeholder="Enter course number eg.c1" name="wh">
+        
             
             <label for="dr">Difficulty Rating</label>
              <select name="dr" id="dr" class="form-control">

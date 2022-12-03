@@ -62,6 +62,9 @@ app.get('/delete-success', function(req, res) {
 app.get('/delete-success', function(req, res) {
     res.send({'message': 'User deleted successfully!'});
 });
+app.get('/insert-review', function(req, res) {
+    res.send({'message': 'Review inserted successfully!'});
+});
 /*
 
 
@@ -104,9 +107,10 @@ app.post('/create-user', function(req, res) {
 });
 app.post('/review-dept', function(req, res) {
     var dept = req.body.dept;
+    var cid = req.body.cid;
     
     cosql1 = `select * from Courses where DeptId LIKE '${dept}'`
-    console.log(cosql);
+    console.log(cosql1);
     connection.query(cosql1, function(err, result3) {
         if (err) {
             res.send(err);
@@ -197,15 +201,25 @@ app.post('/choice', function(req, res) {
     
 });
 app.post('/post-review', function(req, res) {
-    const netid = req.body.netid;
-    const netsub = req.body.submit;
-    const netname = req.body.mybutton;
-    const netname2 = req.body.dept;
-    console.log("----");
-    console.log(netid);
-    console.log(netsub);
-    console.log(netname);
-    console.log(netname2);
+    var netid = req.body.netid;
+    const dept = req.body.submit;
+    var sem = req.body.semester;
+    var year = req.body.year;
+    var cid = req.body.cid;
+    var dr = req.body.dr;
+    var pr = req.body.pr;
+    var cr = req.body.cr;
+    var wh = req.body.wh;
+    var review = req.body.reviewtext;
+    sql =  `Insert into Reviews values('${netid}','${cid}','${dept}','${semester}',${year},'${review}',${dr},${pr},${wh},${cr})`;
+    console.log(sql);
+    connection.query(sql, function(err, result3) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.redirect('/insert-review');
+    });
 
     
 });

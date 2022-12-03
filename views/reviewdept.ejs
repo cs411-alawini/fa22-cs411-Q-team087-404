@@ -11,17 +11,20 @@
    <nav>
     <a href="/">Home</a>
     <a href="/user">User</a>
-    <a href="/review">Reviews</a>
+    <a href=">Reviews</a>
     
   </nav>
    <div class="container mt-4">
      <div class="card">
        <div class="card-body" style="text-align: center; border: 1px solid">
-         <h2>Choose department for course</h2>
+         <h2>Choose course</h2>
          <form action="review-dept" method="POST">
            <div class="form-group">
             <label for="name">Enter Department</label>
             <input type="text" class="form-control col-lg-9" id="dept" aria-describedby="emailHelp" placeholder="Enter Dept eg. CS" name="name">
+            <label for="name">Enter Course number</label>
+            <input type="text" class="form-control col-lg-9" id="cid" aria-describedby="emailHelp" placeholder="Enter Course Number" name="name">
+            
             <button type="submit" class="btn btn-primary">Find Courses</button>
          </form>
    </div>
