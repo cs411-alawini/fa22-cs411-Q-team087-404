@@ -109,7 +109,7 @@ app.post('/review-dept', function(req, res) {
     var dept = req.body.dep;
     var cid = req.body.cid;
     var gpa;
-    cosql1 = `call CourseResult(${cid})`
+    cosql1 = `call CourseResult('${cid}')`
     console.log(cosql1);
     connection.query(cosql1, function(err, result3) {
         if (err) {
