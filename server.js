@@ -120,7 +120,7 @@ app.post('/review-dept', function(req, res) {
         console.log(result3);
         // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
     });
-    var sql = `select * from reviews where CourseId LIKE '${cid}'`;
+    var sql = `select * from Reviews where CourseId LIKE '${cid}'`;
     connection.query(sql, function(err, result) {
         if (err) {
             res.send(err);
