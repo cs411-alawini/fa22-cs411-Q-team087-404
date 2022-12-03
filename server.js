@@ -154,13 +154,9 @@ app.post('/login-user', function(req, res) {
                         return;
                     }
                 console.log(result2);
-                });
-                //console.log()
-                //get list of courses for deptid and password. value is course id but list the names and number
-                //send list of courses not netid
-                //res.redirect('/success')
                 res.render('postreview', { title: 'Create review' , deptid : dept , courses: result2});
-                //result's post must fetch netid and dept id on its own so should send in connection
+                });
+                
             }
         }
     });
