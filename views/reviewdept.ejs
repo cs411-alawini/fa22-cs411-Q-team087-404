@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+         <title>411 Project Demo</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ </head>
+
+ <body>
+   <nav>
+    <a href="/">Home</a>
+    <a href="/user">User</a>
+    <a href="/review">Reviews</a>
+    
+  </nav>
+   <div class="container mt-4">
+     <div class="card">
+       <div class="card-body" style="text-align: center; border: 1px solid">
+         <h2>Choose department for course</h2>
+         <form action="review-dept" method="POST">
+           <div class="form-group">
+            <label for="name">Enter Department</label>
+            <input type="text" class="form-control col-lg-9" id="dept" aria-describedby="emailHelp" placeholder="Enter Dept eg. CS" name="name">
+            <button type="submit" class="btn btn-primary">Find Courses</button>
+         </form>
+   </div>
+ </div>
+ </body>
+</html>

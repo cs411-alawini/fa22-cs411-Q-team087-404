@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+         <title>411 Project Demo</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ </head>
+
+ <body>
+   <nav>
+    <a href="/">Home</a>
+    <a href="/user">User</a>
+    <a href="/review">Reviews</a>
+    
+  </nav>
+   <div class="container mt-4">
+     <div class="card">
+       <div class="card-body">
+         <h2>Choose a course</h2>
+         <form action="find-review" method="POST">
+           <div class="form-group">
+
+          
+          
+            <label for="course">Course</label>
+             <select name="course" id="course" class="form-control">
+                <option value="">Choose Course</option>
+                <% for(var i = 0; i <= data.length; i++)  { %>
+                <option value="<%= data[i].CourseId %>"><%= data[i].Number %>- <%= data[i].Title %></option>
+                <% } %>
+            </select>            
+            
+            
+            </div>
+
+           <button name="mybutton" type="submit" value= <%= deptid %> class="btn btn-primary">Find Reviews</button>
+         </form>
+   </div>
+ </div>
+ </body>
+</html>

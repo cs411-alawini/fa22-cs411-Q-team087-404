@@ -102,6 +102,22 @@ app.post('/create-user', function(req, res) {
         res.redirect('/create-success');
         });
 });
+app.post('/review-dept', function(req, res) {
+    var dept = req.body.dept;
+    
+    cosql = `select * from Courses where DeptId LIKE '${dept}'`
+    console.log(cosql);
+    connection.query(cosql, function(err, result2) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        console.log(result2);
+        console.log(result2[0].CourseId);
+        res.render('reviewcourse', { title: 'Create review' ,  data: result2, deptid : dept });
+    });
+});
+
 
 
 app.post('/login-user', function(req, res) {
