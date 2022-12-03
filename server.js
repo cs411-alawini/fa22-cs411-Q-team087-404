@@ -154,9 +154,9 @@ app.post('/login-user', function(req, res) {
                             res.send(err);
                             return;
                         }
-                    console.log(result2);
-                    console.log(result2[0].CourseId);
-                    res.render('postreview', { title: 'Create review' , deptid : dept , courses: result2});
+                        console.log(result2);
+                        console.log(result2[0].CourseId);
+                        res.render('postreview', { title: 'Create review' ,  data: result2, deptid : dept });
                     });
                 });
                 
