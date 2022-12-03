@@ -109,17 +109,27 @@ app.post('/review-dept', function(req, res) {
     var dept = req.body.dep;
     var cid = req.body.cid;
     
-    cosql1 = `select * from Courses where DeptId LIKE '${dept}'`
+    cosql1 = `call CourseResult(${cid})`
     console.log(cosql1);
     connection.query(cosql1, function(err, result3) {
         if (err) {
             res.send(err);
             return;
         }
+
         console.log(result3);
-        
-       // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
+        // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
     });
+    var sql = `select * from reviews where CourseId LIKE '${cid}'`;
+    connection.query(sql, function(err, result) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+
+        console.log(result);
+        res.render('showreviews', { title: 'Create review' ,  data: result });
+    });    
 });
 
 

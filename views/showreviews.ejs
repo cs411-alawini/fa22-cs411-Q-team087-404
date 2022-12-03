@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>411 Project Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+     <nav>
+        <a href="/">Home</a>
+        <a href="/user">User</a>
+        <a href="/reviewdept">Reviews</a>
+       </nav>
+
+    
+       <div class="container mt-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>  </th>
+              <th>Difficulty Rating (1-10) </th>
+              <th>Practicality Rating (1-10)</th>
+              <th>Workload (hrs/week)</th>
+              <th>Course Rating (1-10)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+            <tr>
+              <th scope="row"></th>
+              <td><%= data[i].Practical_rating%></td>
+              <td><%= data[i].Difficulty_rating%></td>
+              <td><%= data[i].Workload_hours%></td>
+              <td><%= data[i].Course_rating%></td>
+            </tr>
+            <% } }else{ %>
+            <tr>
+              <td>No data ever existed.</td>
+            </tr>
+            <% } %>
+          </tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="container mt-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th> No.</th>
+              <th>Course</th>
+              <th>Review</th>
+              <th>Difficulty Rating (1-10) </th>
+              <th>Practicality Rating (1-10)</th>
+              <th>Workload (hrs/week)</th>
+              <th>Course Rating (1-10)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+            <tr>
+              <th scope="row">i+1</th>
+              <td><%= data[i].DeptId%><%= data[i].Number%> - <%= data[i].Title%></td>
+              <td><%= data[i].Review%></td>   
+              <td><%= data[i].Practical_rating%></td>
+              <td><%= data[i].Difficulty_rating%></td>
+              <td><%= data[i].Workload_hours%></td>
+              <td><%= data[i].Course_rating%></td>
+            </tr>
+            <% } }else{ %>
+            <tr>
+              <td>No data ever existed.</td>
+            </tr>
+            <% } %>
+          </tbody>
+          </tbody>
+        </table>
+      </div>
+</body>
+
+</html>
