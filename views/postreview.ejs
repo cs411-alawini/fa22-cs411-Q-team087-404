@@ -45,9 +45,9 @@
             <label for="cr">Course</label>
              <select name="cr" id="cr" class="form-control">
                 <option value="">Choose Course</option>
-                <% for(var cr = 1; cr <= courses.length; cr++) 
+                <% for(var i = 1; i <= courses.length; i++) 
                 { %>
-                <option value="<%= courses.CourseId %>"><%= courses.Number %>- <%= courses.Title %></option>
+                <option value="<%= courses[i].CourseId %>"><%= courses[i].Number %>- <%= courses[i].Title %></option>
                 <% } %>
             </select>            
             
