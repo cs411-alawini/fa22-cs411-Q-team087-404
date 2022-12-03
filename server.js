@@ -211,7 +211,7 @@ app.post('/post-review', function(req, res) {
     var cr = req.body.cr;
     var wh = req.body.wh;
     var review = req.body.reviewtext;
-    sql =  `Insert into Reviews values('${netid}','${cid}','${dept}','${semester}',${year},'${review}',${dr},${pr},${wh},${cr})`;
+    sql =  `Insert into Reviews values('${netid}','${cid}','${dept}','${sem}',${year},'${review}',${dr},${pr},${wh},${cr})`;
     console.log(sql);
     connection.query(sql, function(err, result3) {
         if (err) {
