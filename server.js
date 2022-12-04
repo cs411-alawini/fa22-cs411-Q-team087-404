@@ -120,7 +120,17 @@ app.post('/review-dept', function(req, res) {
     console.log(result);
     console.log(result.length);
     //redirect to create review page!
-    res.render('reviewcourse', {title: 'Choose course', course:result});
+    console.log(result[0].CourseId);
+    console.log(result[0].Number);
+    console.log(result[0].Title);
+    console.log(result[1].CourseId);
+    console.log(result[1].Number);
+    console.log(result[1].Title);
+    console.log(result[2].CourseId);
+    console.log(result[2].Number);
+    console.log(result[2].Title);
+
+    res.render('reviewcourse', {title: 'Choose course', data:result});
     });
 });
 
