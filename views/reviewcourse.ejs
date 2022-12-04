@@ -26,8 +26,8 @@
             <label for="course">Course</label>
              <select name="course" id="course" class="form-control">
                 <option value="">Choose Course</option>
-                <% for(var i = 0; i <= course.length; i++)  { %>
-                <option value="<%=i %>"><%= course[i].Number %>- <%= course[i].Title %></option>
+                <% for(var i = 0; i <= data.length; i++)  { %>
+                <option value="<%=i %>"><%= data[i].Number%>- <%=data[i].Title%></option>
                 <% } %>
             </select>            
             
