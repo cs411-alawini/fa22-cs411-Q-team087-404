@@ -128,7 +128,7 @@ app.post('/review-dept', function(req, res) {
         }
 
         console.log(result);
-        res.render('showreviews', { title: 'Create review' ,  data: result , gpa: gpa});
+        res.render('showreviews', { title: 'Create review' ,  data: result});
     });    
 });
 
@@ -186,7 +186,7 @@ app.post('/login-user', function(req, res) {
                         }
                         console.log(result2);
                         console.log(result2[0].CourseId);
-                        res.render('postreview', { title: 'Create review' ,  data: result2, deptid : dept });
+                        res.render('postreview', { title: 'Create review' ,  data: result2});
                     });
                 });
                 
