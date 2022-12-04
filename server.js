@@ -117,6 +117,8 @@ app.post('/review-dept', function(req, res) {
         res.send(err)
         return;
     }
+    console.log(result);
+    console.log(result.length);
     //redirect to create review page!
     res.render('reviewcourse', {title: 'Choose course', course:result});
     });
