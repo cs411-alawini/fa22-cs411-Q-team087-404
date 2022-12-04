@@ -128,6 +128,7 @@ app.post('/review-dept', function(req, res) {
         }
 
         console.log(result);
+        console.log(result.length);
         res.render('showreviews', { title: 'Create review' ,  data: result});
     });    
 });
