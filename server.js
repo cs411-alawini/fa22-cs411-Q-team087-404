@@ -105,9 +105,26 @@ app.post('/create-user', function(req, res) {
         res.redirect('/create-success');
         });
 });
-app.post('/review-dept', function(req, res) {
+
+app.post('/create-user', function(req, res) {
     var dept = req.body.dep;
-    var cid = req.body.cid;
+    
+    var sq2 = `SELECT * FROM Courses where DeptId LIKE '${dept}';`;
+
+    console.log(sq2);
+    connection.query(sq2, function(err, result) {
+    if (err) {
+        res.send(err)
+        return;
+    }
+    //redirect to create review page!
+    res.render('reviewcourse', {title: 'Choose course', course:result});
+    });
+});
+
+app.post('/find-review', function(req, res) {
+    //var dept = req.body.dep;
+    var cid = req.body.course;
     var gpa;
     cosql1 = `call CourseResult('${cid}')`
     console.log(cosql1);
@@ -126,7 +143,6 @@ app.post('/review-dept', function(req, res) {
             res.send(err);
             return;
         }
-
         console.log(result);
         console.log(result.length);
         res.render('showreviews', { title: 'Create review' ,  data: result});
