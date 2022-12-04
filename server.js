@@ -106,7 +106,7 @@ app.post('/create-user', function(req, res) {
         });
 });
 
-app.post('/create-user', function(req, res) {
+app.post('/review-dept', function(req, res) {
     var dept = req.body.dep;
     
     var sq2 = `SELECT * FROM Courses where DeptId LIKE '${dept}';`;
