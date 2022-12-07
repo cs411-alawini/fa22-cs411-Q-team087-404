@@ -34,7 +34,6 @@
             </tr>
           </thead>
           <tbody>
-            <% if(resdata.length){ for(var i = 0; i< resdata.length; i++) {%>
             <tr>
               <th scope="row"></th>
               <td><%= resdata[i].Name%></td>
@@ -45,15 +44,14 @@
               <td><%= resdata[i].diff%></td>
               <td><%= resdata[i].gpa%></td>
 
-            </tr>
+                </tr>
+                </tbody>
+                </table>
+             </div>
             <% } }else{ %>
-            <tr>
-              <td>No reviews for this course yet.</td>
-            </tr>
+            <h4>No reviews for this course yet.</h4>
             <% } %>
-          </tbody>
-        </table>
-      </div>
+          
       <h3> Reviews </h3>
       <div class="container mt-4">
         <table class="table">
