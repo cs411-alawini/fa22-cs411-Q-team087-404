@@ -120,15 +120,7 @@ app.post('/review-dept', function(req, res) {
     console.log(result);
     console.log(result.length);
     //redirect to create review page!
-    console.log(result[0].CourseId);
-    console.log(result[0].Number);
-    console.log(result[0].Title);
-    console.log(result[1].CourseId);
-    console.log(result[1].Number);
-    console.log(result[1].Title);
-    console.log(result[2].CourseId);
-    console.log(result[2].Number);
-    console.log(result[2].Title);
+   
 
     res.render('reviewcourse', {title: 'Choose course', data:result});
     });
@@ -149,6 +141,7 @@ app.post('/find-review', function(req, res) {
         console.log(result3);
         // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
     });
+
     var sql = `select * from Reviews where CourseId LIKE '${cid}'`;
     connection.query(sql, function(err, result) {
         if (err) {
@@ -158,7 +151,7 @@ app.post('/find-review', function(req, res) {
         console.log(result);
         console.log(result.length);
         res.render('showreviews', { title: 'Create review' ,  data: result});
-    });    
+    });
 });
 
 
@@ -224,6 +217,7 @@ app.post('/login-user', function(req, res) {
         }
     });
 });
+
 
 
 app.post('/choice', function(req, res) {

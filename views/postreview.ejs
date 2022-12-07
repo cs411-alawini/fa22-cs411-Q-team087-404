@@ -11,7 +11,7 @@
    <nav>
     <a href="/">Home</a>
     <a href="/user">User</a>
-    <a href="/reviewdept">Reviews</a>
+    <a href="/review">Reviews</a>
     
   </nav>
    <div class="container mt-4">
@@ -45,10 +45,14 @@
                 <% } %>
             </select>
           
-            <label for="cid">Course Number</label>
-            <input type="text" class="form-control col-lg-9" id="cid" aria-describedby="emailHelp" placeholder="<%= data[0].CourseId%>" name="cid">
-        
-            
+            label for="course">Course</label>
+             <select name="cid" id="cid" class="form-control">
+                <option value="">Choose Course</option>
+                <% for(var i = 0; i < data.length; i++)  { %>
+                <option value="<%=data[i].CourseId %>"><%= data[i].Number%>- <%=data[i].Title%></option>
+                <% } %>
+            </select>  
+
             <label for="dr">Difficulty Rating</label>
              <select name="dr" id="dr" class="form-control">
                 <option value="">Select Rating from 1 - 10</option>
@@ -84,7 +88,7 @@
 
             </div>
 
-           <button name="mybutton" type="submit" value="deptid"> class="btn btn-primary">Post Review</button>
+           <button name="mybutton" type="submit"  class="btn btn-primary">Post Review</button>
          </form>
    </div>
  </div>
