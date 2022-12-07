@@ -15,10 +15,12 @@
         <a href="/review">Reviews</a>
        </nav>
 
+       <div class="container mt-4"  style="text-align: center;">
+
        <h3> Overall Course Ratings </h3>
        <% if(resdata.length){ for(var i = 0; i< resdata.length; i++) {%>
 
-       <div class="container mt-4">
+       <div class="container mt-4" >
         <table class="table">
           <thead>
             <tr>
@@ -85,6 +87,7 @@
           </tbody>
         </table>
       </div>
+       </div>
 </body>
 
 </html>
