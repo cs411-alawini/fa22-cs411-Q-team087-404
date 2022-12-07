@@ -142,18 +142,19 @@ app.post('/find-review', function(req, res) {
         reshere=result3;
         console.log(result3);
         // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
+        var sql = `select * from Reviews where CourseId LIKE '${cid}'`;
+        connection.query(sql, function(err, result) {
+            if (err) {
+                res.send(err);
+                return;
+            }
+            console.log(reshere);
+            console.log(reshere.length);
+            res.render('showreviews', { title: 'Create review' ,  data: result, resdata: result3});
+        });
     });
 
-    var sql = `select * from Reviews where CourseId LIKE '${cid}'`;
-    connection.query(sql, function(err, result) {
-        if (err) {
-            res.send(err);
-            return;
-        }
-        console.log(result);
-        console.log(result.length);
-        res.render('showreviews', { title: 'Create review' ,  data: result, resdata: reshere});
-    });
+   
 });
 
 
