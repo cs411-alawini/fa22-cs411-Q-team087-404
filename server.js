@@ -140,6 +140,7 @@ app.post('/find-review', function(req, res) {
         }
         gpa = result3[0].gpa;
         reshere=result3;
+        consolee.log("==result3");
         console.log(result3);
         // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
         var sql = `select * from Reviews where CourseId LIKE '${cid}'`;
@@ -148,12 +149,16 @@ app.post('/find-review', function(req, res) {
                 res.send(err);
                 return;
             }
-
+            consolee.log("==reshere");
             console.log(reshere);
             console.log(reshere.length);
+            consolee.log("==result3");
+            console.log(result3);
+            consolee.log("==result");
+
             console.log(result);
             console.log(result.length);
-            res.render('showreviews', { title: 'Create review' ,  data: result, resdata: result3});
+            res.render('showreviews', { title: 'Create review' ,  data: result, data2: result3});
         });
     });
 
