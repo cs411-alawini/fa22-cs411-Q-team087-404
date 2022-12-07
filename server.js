@@ -130,7 +130,8 @@ app.post('/find-review', function(req, res) {
     //var dept = req.body.dep;
     var cid = req.body.course;
     var gpa;
-    cosql1 = `call CourseResult('${cid}')`
+    var reshere;
+    cosql1 = `call CourseProcedure('${cid}')`
     console.log(cosql1);
     connection.query(cosql1, function(err, result3) {
         if (err) {
@@ -138,6 +139,7 @@ app.post('/find-review', function(req, res) {
             return;
         }
         gpa = result3[0].gpa;
+        reshere=result3;
         console.log(result3);
         // res.render('reviewcourse', { title: 'Create review' ,  data: result3, deptid : dept });
     });
@@ -150,7 +152,7 @@ app.post('/find-review', function(req, res) {
         }
         console.log(result);
         console.log(result.length);
-        res.render('showreviews', { title: 'Create review' ,  data: result});
+        res.render('showreviews', { title: 'Create review' ,  data: result, resdata: reshere});
     });
 });
 

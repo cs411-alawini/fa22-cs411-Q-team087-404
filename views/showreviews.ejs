@@ -15,41 +15,51 @@
         <a href="/review">Reviews</a>
        </nav>
 
-    
+       <h2><%= data[i].Number%>- <%=data[i].Title%> <%=resdata[0].feel%></h2>
+       <h3> Overall Course Ratings </h3>
+       <% if(resdata.length){ for(var i = 0; i< resdata.length; i++) {%>
+
        <div class="container mt-4">
         <table class="table">
           <thead>
             <tr>
-              <th> Overall Course Rating </th>
+              <th>Instructor </th>
               <th>Difficulty Rating (1-10) </th>
               <th>Practicality Rating (1-10)</th>
               <th>Workload (hrs/week)</th>
               <th>Course Rating (1-10)</th>
+              <th>Difficulty Level </th>
+              <th>Avg GPA </th>
+
             </tr>
           </thead>
           <tbody>
-            <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+            <% if(resdata.length){ for(var i = 0; i< resdata.length; i++) {%>
             <tr>
               <th scope="row"></th>
-              <td><%= data[i].Practical_rating%></td>
-              <td><%= data[i].Difficulty_rating%></td>
-              <td><%= data[i].Workload_hours%></td>
-              <td><%= data[i].Course_rating%></td>
+              <td><%= resdata[i].Name%></td>
+              <td><%= resdata[i].Practical_rating%></td>
+              <td><%= resdata[i].Difficulty_rating%></td>
+              <td><%= resdata[i].Workload_hours%></td>
+              <td><%= resdata[i].Course_rating%></td>
+              <td><%= resdata[i].diff%></td>
+              <td><%= resdata[i].gpa%></td>
+
             </tr>
             <% } }else{ %>
             <tr>
-              <td>No data ever existed.</td>
+              <td>No reviews for this course yet.</td>
             </tr>
             <% } %>
           </tbody>
-          </tbody>
         </table>
       </div>
+      <h3> Reviews </h3>
       <div class="container mt-4">
         <table class="table">
           <thead>
             <tr>
-              <th> No.</th>
+              <th>No.</th>
               <th>Course</th>
               <th>Review</th>
               <th>Difficulty Rating (1-10) </th>
@@ -61,7 +71,7 @@
           <tbody>
             <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
             <tr>
-              <th scope="row">i+1</th>
+              <th scope="row"><%=(i+1)%></th>
               <td><%= data[i].DeptId%><%= data[i].Number%> - <%= data[i].Title%></td>
               <td><%= data[i].Review%></td>   
               <td><%= data[i].Practical_rating%></td>
@@ -71,7 +81,7 @@
             </tr>
             <% } }else{ %>
             <tr>
-              <td>No data ever existed.</td>
+              <td>No reviews for this course yet.</td>
             </tr>
             <% } %>
           </tbody>
