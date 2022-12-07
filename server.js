@@ -133,6 +133,14 @@ app.post('/find-review', function(req, res) {
     var reshere;
     cosql1 = `call CourseProcedure('${cid}')`
     console.log(cosql1);
+    connection.query(cosql1, function(err, res) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+    });
+    cosql1 = `Select * from NewTable`;
+    console.log(cosql1);
     connection.query(cosql1, function(err, result3) {
         if (err) {
             res.send(err);
