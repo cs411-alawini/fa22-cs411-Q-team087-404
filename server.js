@@ -129,6 +129,7 @@ app.post('/review-dept', function(req, res) {
 app.post('/find-review', function(req, res) {
     //var dept = req.body.dep;
     var cid = req.body.course;
+    var resrev;
     var gpa;
     var reshere;
     cosql1 = `call CourseProcedure('${cid}')`
@@ -138,6 +139,15 @@ app.post('/find-review', function(req, res) {
             res.send(err);
             return;
         }
+    });
+    cosql1 = `Select * from Courses where CourseId='${cid}'`
+    console.log(cosql1);
+    connection.query(cosql1, function(err, res) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        resrev =res;
     });
     cosql1 = `Select * from NewTable`;
     console.log(cosql1);
@@ -166,7 +176,7 @@ app.post('/find-review', function(req, res) {
 
             console.log(result);
             console.log(result.length);
-            res.render('showreviews', { title: 'Create review' ,  data: result, data2: result3});
+            res.render('showreviews', { title: 'Create review' ,  data: result, data2: result3, data3:resrev});
         });
     });
 
