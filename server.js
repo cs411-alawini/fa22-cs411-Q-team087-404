@@ -148,8 +148,11 @@ app.post('/find-review', function(req, res) {
                 res.send(err);
                 return;
             }
+
             console.log(reshere);
             console.log(reshere.length);
+            console.log(result);
+            console.log(result.length);
             res.render('showreviews', { title: 'Create review' ,  data: result, resdata: result3});
         });
     });
