@@ -14,6 +14,8 @@
         <a href="/user">User</a>
         <a href="/review">Reviews</a>
        </nav>
+      <h2> <%= data3[0].DeptId%><%= data3[0].Number%>- <%=data3[0].Title%> </h2>
+       <h3> Overall Course Ratings </h3>
 
        <div class="container mt-4"  style="text-align: center;">
 
@@ -24,6 +26,8 @@
         <table class="table">
           <thead>
             <tr>
+             <th> 
+                <th>No. </th>
               <th>Instructor </th>
               <th>Difficulty Rating (1-10) </th>
               <th>Practicality Rating (1-10)</th>
@@ -36,12 +40,12 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"></th>
+              <th scope="row"><%=(i+1)%></th>
               <td><%= data2[i].Name%></td>
-              <td><%= data3[i].Practical_rating%></td>
-              <td><%= data3[i].Difficulty_rating%></td>
-              <td><%= data2[i].Workload_hours%></td>
-              <td><%= data3[i].Course_rating%></td>
+              <td><%= data3[0].Practical_rating%></td>
+              <td><%= data3[0].Difficulty_rating%></td>
+              <td><%= data3[0].Workload_hours%></td>
+              <td><%= data3[0].Course_rating%></td>
               <td><%= data2[i].diff%></td>
               <td><%= data2[i].gpa%></td>
 
