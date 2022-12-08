@@ -17,9 +17,9 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-|  Title      |      UIUC Coursehub    |
-| System URL  |                        |
-| Video Link  |                        |
+|  Title      |      UIUC Coursehub                                                                                      |
+| System URL  |                         35.209.141.178                                                                   |
+| Video Link  |     https://drive.google.com/file/d/17bK7243IMjBegK_UcPAno-DU3LD1dKd5/view?usp=sharing                   |
 
 ## Project Summary
 Our project will be a web application which displays GPAs, general statistics for a variety of courses offered at UIUC across different departments from Summer 2010 to Fall 2021, along with student reviews and ratings on those courses on various metrics. This data will be accessed through a database in the backend.
