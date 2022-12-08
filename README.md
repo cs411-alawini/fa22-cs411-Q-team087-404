@@ -1,7 +1,7 @@
 # fa22-cs411-Q-team087-404
 Team 404 repository
 
-# Procedure: 
+# Procedure with 2 advanced queries: 
 
 delimiter //
 Create Procedure CourseProcedure(IN cid VARCHAR(20))
