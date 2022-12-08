@@ -1,6 +1,7 @@
 # fa22-cs411-Q-team087-404
 Team 404 repository
 
+Below is our stored procedures and triggers as exactly outputted by our database:
 
 Procedure: 
 mysql> show create procedure CourseResult;
