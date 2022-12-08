@@ -3,6 +3,8 @@ Team 404 repository
 
 # Procedure: 
 
+delimiter //
+Create Procedure CourseProcedure(IN cid VARCHAR(20))
 BEGIN
 declare varCourseId varchar(20);
 declare varNumber int;
@@ -12,6 +14,7 @@ declare varEid varchar(20);
 declare varName varchar(70);
 declare avggpa real;
 declare feeling varchar(10);
+declare level varchar(30);
 declare varA1 int;
 declare varA2 int;
 declare varA3 int;
@@ -26,6 +29,7 @@ declare varD2 int;
 declare varD3 int;
 declare varF int;
 declare varW int;
+declare percent REAL DEFAULT 0;
 declare exit_loop BOOLEAN default FALSE;
 declare cusCur cursor for (
 select c.CourseId, c.Number, c.Title, c.DeptId, i.Eid, i.Name, num_each_grade.A1, num_each_grade.A2, num_each_grade.A3, num_each_grade.B1, num_each_grade.B2, num_each_grade.B3, num_each_grade.C1, num_each_grade.C2, num_each_grade.C3, num_each_grade.D1, num_each_grade.D2, num_each_grade.D3, num_each_grade.F, num_each_grade.W from Courses as c natural join Course_Offerings as co natural join Instructors as i natural join (select co.CourseId, i.Eid, sum(co.A1) as A1, sum(co.A2) as A2, sum(co.A3) as A3, sum(co.B1) as B1, sum(co.B2) as B2, sum(co.B3) as B3, sum(co.C1) as C1, sum(co.C2) as C2, sum(co.C3) as C3, sum(co.D1) as D1, sum(co.D2) as D2, sum(co.D3) as D3, sum(co.F) as F, sum(co.W) as W from Course_Offerings as co natural join Instructors as i group by co.CourseId, i.Eid) as num_each_grade where c.CourseId=cid);
@@ -39,7 +43,8 @@ create table NewTable(
     Eid varchar(20),
     Name varchar(70),
     gpa real,
-    feel varchar(10)
+    feel varchar(10),
+diff varchar(30)
 );
 OPEN cusCur;
 cloop: LOOP
@@ -60,11 +65,21 @@ set avggpa=((4*varA1)+(3.66*varA2)+(3.33*varA3)+(3*varB1)+(2.66*varB2)+(2.33*var
     else
         set feeling="D:";
     end if;
-    insert into NewTable VALUES (varCourseId, varNumber, varTitle, varDeptId, varEid, varName, avggpa, feeling);
+
+select output.percentage*100 as percentage into percent from (select CourseId, sum(A1+A2+A3) as A ,sum(A1+A2+A3+B1+B2+B3+C1+C2+C3+D1+D2+D3+F) as total, sum(A1+A2+A3)/sum(A1+A2+A3+B1+B2+B3+C1+C2+C3+D1+D2+D3+F) as percentage from Course_Offerings group by CourseId) as output  join Courses ON output.CourseId=Courses.CourseId where output.CourseId = cid;
+
+    if (percent>80) then
+        set level="Easy";
+    elseif(percent>50) then
+        set level="Moderate";
+    else
+        set level="Hard";
+    end if;
+    insert into NewTable VALUES (varCourseId, varNumber, varTitle, varDeptId, varEid, varName, avggpa, feeling, level);
 END LOOP cloop;
 CLOSE cusCur;
 select DeptId, Number, CourseId, Title, Name, gpa, feel from NewTable where CourseId=cid order by DeptId, Number, CourseId, Title, Name;
-end
+end;
 
 # Trigger:
 
